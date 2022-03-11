@@ -1,5 +1,10 @@
 <?php
 
+
+// Importamos el Controlador "HomeController"
+use App\Http\Controllers\HomeController;
+// Importamos el Controlador "CursoController"
+use App\Http\Controllers\CursoController;
 use Illuminate\Support\Facades\Route;
 use Ramsey\Uuid\Math\RoundingMode;
 
@@ -29,29 +34,40 @@ use Ramsey\Uuid\Math\RoundingMode;
 // });
 
 // Retornamos un string si se accede a la ruta principal
-Route::get('/', function () {
-    // return view('welcome');
-    return "Bienvenido a la página principal";
-});
+// HomeController::class => Llamamos al controlador HomeController y buscará el método magíco "__invoke"
+Route::get('/', HomeController::class);
+// Forma: Laravel 7
+// Route::get('/', 'HomeController');
+
+// [CursoController::class, 'index'] => Agregamos como 1er parametro la clase del Controlador y como 2do parametro el nombre del método que queremos ejecutar
+// Se utiliza esta sintaxis cuando se crea una Clase que Administrará varias Rutas con distintos Métodos
+Route::get('/cursos', [CursoController::class, 'index']);
+// Forma: Laravel 7
+// Route::get('/cursos', 'CursoController@index']);
+
 
 // Retornamos un string si se accede a la rita 
-Route::get('cursos/create', function () {
-    return "En esta página podrás crear un curso";
-});
+// [CursoController::class, 'create'] => Agregamos como 1er parametro la clase del Controlador y como 2do parametro el nombre del método que queremos ejecutar
+// Se utiliza esta sintaxis cuando se crea una Clase que Administrará varias Rutas con distintos Métodos
+Route::get('cursos/create', [CursoController::class, 'create']);
+// Forma: Laravel 7
+// Route::get('/cursos', 'CursoController@create']);
 
-// Obtenemos datos de la URL y lo mostramos por pantalla
-Route::get('cursos/{curso}', function ($curso) {
-    return "Bienvenido al curso: $curso";
-});
+// Obtenemos datos de la URL encerrandolas en llaves "{}" y lo mostramos por pantalla
+// [CursoController::class, 'show'] => Agregamos como 1er parametro la clase del Controlador y como 2do parametro el nombre del método que queremos ejecutar
+// Se utiliza esta sintaxis cuando se crea una Clase que Administrará varias Rutas con distintos Métodos
+Route::get('cursos/{curso}', [CursoController::class, 'show']);
+// Forma: Laravel 7
+// Route::get('/cursos', 'CursoController@show']);
 
 // Enviamos dos variables desde la URL y lo obtenemos con la función anonima para retornar un valor
 // {categoria?}: En la variable categoria tiene el caracter "?" para indicar que es opcional,
 // Para que sea del todo opcional tambien se debe agregar el valor por defecto en la función anonima
-Route::get('cursos/{curso}/{categoria?}', function ($curso, $categoria = null) {
+// Route::get('cursos/{curso}/{categoria?}', function ($curso, $categoria = null) {
     
-    if($categoria){
-        return "Bienvendio al curso $curso, de la categoría $categoria";#
-    }else{
-        return "Bienvendio al curso $curso";
-    }
-});
+//     if($categoria){
+//         return "Bienvendio al curso $curso, de la categoría $categoria";#
+//     }else{
+//         return "Bienvendio al curso $curso";
+//     }
+// });
