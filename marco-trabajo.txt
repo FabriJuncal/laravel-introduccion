@@ -1,0 +1,3 @@
+Rutas Dinamicas: 
+"routes\web.php"
+En este archivo se agregan las rutas dinamicas que tendrá el proyecto
