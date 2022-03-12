@@ -1,3 +1,19 @@
 Rutas Dinamicas: 
 "routes\web.php"
 En este archivo se agregan las rutas dinamicas que tendrá el proyecto
+
+Controladores:
+"app\Http\Controllers\[CONTROLADOR_CREADO].php"
+En este directorio llamado "Controllers" se crearan los controladores que adminsitren las Rutas.
+Estos constroladores se pueden crear con el siguiente comando:
+
+	php artisan make:controller [NombreControlador]
+
+	EJ: php artisan make:controller HomeController
+
+
+Vistas:
+"resources\views\[VISTA_CREADA].blade.php"
+En este directorio llamado "views" se crearan las vistas que serán invocadas por los controladores.
+Las vistas son archivos .blade.php que contendrán todo el HTML, CSS y JS de la página.
+La extensión .blade.php se utiliza para poder hacer uso del Sistema de Plantillas de Blade y poder reutilizar todo lo que sea HTML
