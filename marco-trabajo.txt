@@ -2,6 +2,8 @@ Rutas Dinamicas:
 "routes\web.php"
 En este archivo se agregan las rutas dinamicas que tendrá el proyecto
 
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
 Controladores:
 "app\Http\Controllers\[CONTROLADOR_CREADO].php"
 En este directorio llamado "Controllers" se crearan los controladores que adminsitren las Rutas.
@@ -11,9 +13,32 @@ Estos constroladores se pueden crear con el siguiente comando:
 
 	EJ: php artisan make:controller HomeController
 
+----------------------------------------------------------------------------------------------------------------------------------------------------
 
 Vistas:
 "resources\views\[VISTA_CREADA].blade.php"
 En este directorio llamado "views" se crearan las vistas que serán invocadas por los controladores.
 Las vistas son archivos .blade.php que contendrán todo el HTML, CSS y JS de la página.
 La extensión .blade.php se utiliza para poder hacer uso del Sistema de Plantillas de Blade y poder reutilizar todo lo que sea HTML
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+Variables de Entorno:
+".env"
+En este archivo se almacenarán todas las variables globales como las credencials de acceso a la base de datos.
+Se debe almacenar aqui todas las credenciales que no se quieran subir al repositorio, ya que este archivo no se subirá
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+Conección a la Base de Datos:
+"config\database.php"
+En este archivo se agregan las configuraciones para acceder a la base de datos
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+Migraciones (Versionado de Tablas de Laravel):
+"database\migrations"
+En este directorio se almacenan los códigos que crearan las tablas del proyecto
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+

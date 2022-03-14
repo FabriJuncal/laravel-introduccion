@@ -13,14 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
+        // Schema::create() => Crea una nueva tabla en la base de datos
+        // 1er_parametro => El nombre de la tabla
+        // 2do_parametro => Una instancia de la clase Blueprint (Esta instancia se utiliza para creaer las columnas)
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+            $table->id(); // Crea una columna llamada "id" de tipo "integer" y de longitud "11"
+            $table->string('name'); // Crea una columna llamada "name" de tipo "string" y de longitud "255"
+            $table->string('email')->unique(); // Crea una columna llamada "email" de tipo "string" y de longitud "255" y la columna es única
+            $table->timestamp('email_verified_at')->nullable(); // Crea una columna llamada "email_verified_at" de tipo "timestamp" y es opcional
+            $table->string('password'); // Crea una columna llamada "password" de tipo "string" y de longitud "255"
+            $table->rememberToken(); // Crea una columna llamada "remember_token" de tipo "string" y de longitud "100"
+            $table->timestamps(); // Crea dos columnas llamadas "created_at" y "updated_at" de tipo "timestamp"
         });
     }
 
@@ -31,6 +34,8 @@ return new class extends Migration
      */
     public function down()
     {
+        // Schema::dropIfExists() => Elimina una tabla que exista en la base de datos
+        // 1er_parametro => El nombre de la tabla
         Schema::dropIfExists('users');
     }
 };

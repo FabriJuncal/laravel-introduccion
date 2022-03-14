@@ -9,11 +9,15 @@ return [
     | Default Database Connection Name
     |--------------------------------------------------------------------------
     |
-    | Here you may specify which of the database connections below you wish
-    | to use as your default connection for all database work. Of course
-    | you may use many connections at once using the Database library.
+    | Aquí puede especificar cuál de las siguientes conexiones de base de datos desea
+    | para usar como su conexión predeterminada para todo el trabajo de la base de datos. 
+    | Por supuesto puede usar muchas conexiones a la vez usando la biblioteca de la base de datos.
     |
     */
+
+    // env(1er_parametro, 2do_parametro) => Esta función hace referencia a las variables de entorno almacenadas en el archivo ".env"
+    // 1er_parametro => El nombre de la variable de entorno que se buscará en el archivo ".env"
+    // 2do_parametro => El valor por defecto que se devolverá si la variable de entorno no existe en el archivo ".env"
 
     'default' => env('DB_CONNECTION', 'mysql'),
 
@@ -22,14 +26,14 @@ return [
     | Database Connections
     |--------------------------------------------------------------------------
     |
-    | Here are each of the database connections setup for your application.
-    | Of course, examples of configuring each database platform that is
-    | supported by Laravel is shown below to make development simple.
+    | Aquí está cada una de las conexiones de base de datos configuradas para su aplicación.
+    | se muestra a continuación para simplificar el desarrollo ejemplos de configuración de 
+    | cada plataforma de base de datos que sea compatible con Laravel .
     |
     |
-    | All database work in Laravel is done through the PHP PDO facilities
-    | so make sure you have the driver for your particular database of
-    | choice installed on your machine before you begin development.
+    | Todo el trabajo de la base de datos en Laravel se realiza a través de las instalaciones de PHP PDO
+    | así que asegúrese de tener el controlador para su base de datos particular de
+    | elección instalada en su máquina antes de comenzar el desarrollo.
     |
     */
 
@@ -98,9 +102,9 @@ return [
     | Migration Repository Table
     |--------------------------------------------------------------------------
     |
-    | This table keeps track of all the migrations that have already run for
-    | your application. Using this information, we can determine which of
-    | the migrations on disk haven't actually been run in the database.
+    | Esta tabla realiza un seguimiento de todas las migraciones que ya se han ejecutado para
+    | su aplicación. Usando esta información, podemos determinar cuál de
+    | las migraciones en el disco en realidad no se han ejecutado en la base de datos.
     |
     */
 
@@ -111,9 +115,9 @@ return [
     | Redis Databases
     |--------------------------------------------------------------------------
     |
-    | Redis is an open source, fast, and advanced key-value store that also
-    | provides a richer body of commands than a typical key-value system
-    | such as APC or Memcached. Laravel makes it easy to dig right in.
+    | Redis es un almacén clave-valor de código abierto, rápido y avanzado que también
+    | proporciona un cuerpo de comandos más rico que un sistema típico de clave-valor
+    | como APC o Memcached. Laravel hace que sea fácil profundizar.
     |
     */
 
