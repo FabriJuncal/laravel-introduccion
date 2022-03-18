@@ -38,7 +38,56 @@ En este archivo se agregan las configuraciones para acceder a la base de datos
 
 Migraciones (Versionado de Tablas de Laravel):
 "database\migrations"
-En este directorio se almacenan los códigos que crearan las tablas del proyecto
+En este directorio se almacenan los códigos que crearan las tablas y tambien se modificarán los campos de las tablas y entre otras cosas del proyecto
+
+1) Ejecutar las migraciones para que se actualice la base de datos:
+
+php artisan migrate
+
+2) Crear una Migración en la ruta "database\migrations"
+	
+	// Crea una Tabla
+	php artisan make:migration [TipoAccion]_[NombreMigracion]_[ObjectoBD]
+	
+	EJ: php artisan make:migration create_cursos_table
+
+	// Crea una columna en la Tabla
+	php artisan make:migration [TipoAccion]_[NombreColumna]_to_[NombreTabla]_table
+
+	EJ: php artisan make:migration add_avatar_to_users_table
+
+3) Rollback por lotes (esto se puede ver en la tabla "migrations" en la columna "batch") de los objetos de base creados:
+
+	php artisan migrate:rollback
+
+4) Eliminar las Migraciones existentes (tablas que ya se encuentren en la base de datos por ejemplo)
+   y luego crearlas todas juntas, este comando sirve en el caso que se haya actualizado algún campo de alguna tabla 
+   que ya se haya creado atravez de las migraciones, por lo tanto es necesario eliminarla y luego crearla detectando
+   el nuevo campo creado en la tabla.
+   Es importante que se se pierden todos los datos que se encuentren en las tablas, por lo tanto no es recomendable
+   ejecutarlo en Producción:
+
+	php artisan migrate:fresh
+
+5) Cambiar propiedades de una columna desde las migraciones, para esto primero hay que instalarse la siguiente libreria:
+
+	composer require doctrine/dbal
+
+   Luego hay que crear una migración siguiendo las siguientes convenciones:
+
+	php artisan make:migration [Accion]_propiedades_to_[NombreTabla]_table
+
+	EJ: php artisan make:migration cambiar_propiedades_to_users_table
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 
+Modelos:
+"app\Models"
+En este directorio llamado "Models" se crearan los Modelos que administren las base de datos.
+Estos modelos se pueden crear con el siguiente comando:
+
+	php artisan make:model [NombreModelo]
+	
+	EJ: php artisan make:model Curso
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
