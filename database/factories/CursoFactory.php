@@ -22,7 +22,7 @@ class CursoFactory extends Factory
     {   
         // En el return devolvemos un array con los datos que queremos que se carguen con registros de relleno
         return [
-            'nombre' => $this->faker->setence(), // El setence() es un método de la clase Faker que genera una frase aleatoria
+            'name' => $this->faker->sentence(), // El sentence() es un método de la clase Faker que genera una frase aleatoria
             'descripcion' => $this->faker->paragraph(), // El paragraph() es un método de la clase Faker que genera un parrafo aleatorio
             'categoria' => $this->faker->randomElement(['Desarrollo Web', 'Desarrollo Móvil', 'Diseño Web']), // El randomElement() es un método de la clase Faker que genera un elemento aleatorio de un array
         ];
