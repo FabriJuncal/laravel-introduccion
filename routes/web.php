@@ -88,7 +88,10 @@ Route::get('/', HomeController::class);
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Route::controller([AGREGAR_CONTROLADOR])->group(function(){}): Con esta sintaxis se agrupan varias rutas que utilizan el mismo controlador
 Route::controller(CursoController::class)->group(function(){
-    Route::get('cursos', 'index');
-    Route::get('cursos/create', 'create');
-    Route::get('cursos/{curso}', 'show');
+
+    // ->name('[AGREGAR NOMBRE DE RUTA]') => Se le asigna un nombre a la ruta para poder utilizarla en otras partes de la aplicación
+    // Este nombre se utilizará para hacer referencia a la ruta en otras partes de la aplicación con la función "route('[AGREGAR NOMBRE DE RUTA]')"
+    Route::get('cursos', 'index')->name('cursos.index');
+    Route::get('cursos/create', 'create')->name('cursos.create');
+    Route::get('cursos/{id}', 'show')->name('cursos.show');
 });

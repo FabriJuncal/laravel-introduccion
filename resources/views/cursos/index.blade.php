@@ -12,5 +12,26 @@
 @section('content')
     {{-- Utilizamos esta sintaxis para poder agregar contenido HTML extenso como valor que se pasará a la plantilla --}}
     <h1>Bienvenido a la página principal</h1>
+
+    {{-- route('cursos.create') => Pasamos como parametro el nombre que hace referencia a la ruta definida en el archivo "routes\web.php" --}}
+    <a href="{{ route('cursos.create') }}">Crear curso</a>
+    <ul>
+        {{-- Bucle repetitivo que obtiene los datos de la variable "$cursos" que pasamos como parametro en el archivo "app\Http\Controllers\CursoController.php" --}}
+        {{-- y le asigna cada valor a la variable "$curso" --}}
+        @foreach ($cursos as $curso)
+
+            <li>
+                {{-- route('cursos.show') => Pasamos como parametro el nombre que hace referencia a la ruta definida en el archivo "routes\web.php" --}}
+                {{-- $curso->name => Obtenemos el nombre del objeto "curso" y lo mostramos --}}
+                <a href="{{ route('cursos.show', $curso) }}">{{ $curso->name }}</a>
+            </li>
+            
+        @endforeach 
+        {{-- Fin del bucle "foreach" --}}
+    </ul>
+
+    {{-- Obtenemos los links de páginación (Botones, iconos, nros de página, etc) --}}
+    {{ $cursos->links() }}
+
 @endsection 
 {{-- Fin de la declaración del campo "content" --}}

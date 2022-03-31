@@ -91,3 +91,10 @@ Estos modelos se pueden crear con el siguiente comando:
 	EJ: php artisan make:model Curso
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------
+
+Mutadores:
+
+Los mutadores se definen dentro del modelo en el directorio "app\Models".
+Estos son funciones que se utilizan para modificar los datos que se insertarán en las tablas.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
