@@ -15,6 +15,10 @@
 
     {{-- route('cursos.index') => Pasamos como parametro el nombre que hace referencia a la ruta definida en el archivo "routes\web.php" --}}
     <a href="{{ route('cursos.index') }}">Volver a cursos</a>
+    <br>
+    {{--  route('cursos.edit', $curso) => Pasamos como 1er parametro el nombre que hace referencia a la ruta definida en el archivo "routes\web.php" 
+                                          y como 2do parametro la instancia del objeto que se quiere editar--}}
+    <a href="{{ route('cursos.edit', $curso) }}">Editar curso</a>
     {{-- $curso->categoria => Obtenemos la categoria del objeto "curso" y lo mostramos --}}
     <p><strong>Categoria:</strong> {{ $curso->categoria }} </p>
     {{-- $curso->description => Obtenemos la descripción del objeto "curso" y lo mostramos --}}

@@ -93,5 +93,8 @@ Route::controller(CursoController::class)->group(function(){
     // Este nombre se utilizará para hacer referencia a la ruta en otras partes de la aplicación con la función "route('[AGREGAR NOMBRE DE RUTA]')"
     Route::get('cursos', 'index')->name('cursos.index');
     Route::get('cursos/create', 'create')->name('cursos.create');
-    Route::get('cursos/{id}', 'show')->name('cursos.show');
+    Route::get('cursos/{curso}', 'show')->name('cursos.show');
+    Route::post('cursos', 'store')->name('cursos.store');
+    Route::get('cursos/{curso}/edit', 'edit')->name('cursos.edit');
+    Route::put('cursos/{curso}', 'update')->name('cursos.update');
 });
