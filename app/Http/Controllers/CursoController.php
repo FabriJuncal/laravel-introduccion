@@ -34,6 +34,16 @@ class CursoController extends Controller
 
     // Por convención al metodo que creará un elemento (Producto, Curso, etc) se le llama "store()"
     public function store(Request $request){
+
+        // Validamos los datos que se reciben del formulario, en este caso se validan que los campos no estén vacíos
+        // Si no se cumplen las reglas de validación se redirige a la vista "create".
+        // Las validaciones se van realizando en el orden de Izquierda a Derecha, por lo tanto 1ro va a verificar que el campo "name" no esté vacío
+        $request->validate([
+            'name' => 'required|max:10',
+            'description' => 'required|min:5',
+            'categoria' => 'required',
+        ]);
+
         // Instanciamos un nuevo objeto de la clase Curso
         $curso = new Curso();
         $curso->name = $request->name;
@@ -77,6 +87,16 @@ class CursoController extends Controller
 
     // Por convención al metodo que actualizará un elemento (Producto, Curso, etc) se le llama "update()"
     public function update(Request $request, Curso $curso){
+
+        // Validamos los datos que se reciben del formulario, en este caso se validan que los campos no estén vacíos
+        // Si no se cumplen las reglas de validación se redirige a la vista "create".
+        // Las validaciones se van realizando en el orden de Izquierda a Derecha, por lo tanto 1ro va a verificar que el campo "name" no esté vacío
+        $request->validate([
+            'name' => 'required|max:10',
+            'description' => 'required|min:5',
+            'categoria' => 'required',
+        ]);
+
         // No hace falta que instancemos el objeto Curso porque Laravel ya lo hace por nosotros
         // al instancar el objeto Curso en el parametro $curso de la función
         // de esta forma Laravel ya filtra el curso por el id que contiene el objeto Curso

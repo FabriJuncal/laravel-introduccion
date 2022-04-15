@@ -1,3 +1,11 @@
+Idiomas de Mensajes de errores:
+"lang"
+En este archivo se agregan los mensajes de errores que se reciben de Laravel, por lo general solo se encuentra la versión de Ingles
+pero se puede agregar otro directorio indicando el idioma y traducir los mensajes de ingles que ya se encuentran.
+Luego se deber configurar en la ruta "config\app.php" y buscar la key "locale" y cambiar el valor "en" por el que se desee
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
 Rutas Dinamicas: 
 "routes\web.php"
 En este archivo se agregan las rutas dinamicas que tendrá el proyecto

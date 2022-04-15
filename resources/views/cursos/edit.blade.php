@@ -25,24 +25,54 @@
                          <label>
                              Nombre:
                              <br>
-                             <input type="text" name="name" value={{ $curso->name }}>
+                            {{-- old([NOMBRE_CAMPO], [VALOR_A_MOSTRAR_EN_CAMPO]) => La función "old()" recibe 
+                                 1er parametro:  el nombre del campo y al recargarse la página cuando se envía el formulario este obtiene el valor que tenía anteriormente 
+                                 2do parametro: Valor de se mostrará por defecto en el campo al cargarse por 1ra vez la página--}}
+                             <input type="text" name="name" value="{{ old('name', $curso->name) }}">
                          </label>
+
+                        {{-- Obtenemos el error relacionado al campo "name" al enviar el formulario --}}
+                        @error('name')
+                            <br>
+                            <small>*{{ $message }}</small>
+                            <br>
+                        @enderror
                  
                          <br>
                  
                          <label>
                              Descripción:
                              <br>
-                             <textarea name="description" row="5">{{ $curso->description }}</textarea>
+                            {{-- old([NOMBRE_CAMPO], [VALOR_A_MOSTRAR_EN_CAMPO]) => La función "old()" recibe 
+                                 1er parametro:  el nombre del campo y al recargarse la página cuando se envía el formulario este obtiene el valor que tenía anteriormente 
+                                 2do parametro: Valor de se mostrará por defecto en el campo al cargarse por 1ra vez la página--}}
+                             <textarea name="description" row="5">{{ old('description', $curso->description) }}</textarea>
                          </label>
+
+                        {{-- Obtenemos el error relacionado al campo "description" al enviar el formulario --}}
+                        @error('description')
+                            <br>
+                            <small>*{{ $message }}</small>
+                            <br>
+                        @enderror
                          
                          <br>
                  
                          <label>
                              Categoría:
                              <br>
-                             <input type="text" name="categoria" value={{ $curso->categoria }}>
+                            {{-- old([NOMBRE_CAMPO], [VALOR_A_MOSTRAR_EN_CAMPO]) => La función "old()" recibe 
+                                 1er parametro:  el nombre del campo y al recargarse la página cuando se envía el formulario este obtiene el valor que tenía anteriormente 
+                                 2do parametro: Valor de se mostrará por defecto en el campo al cargarse por 1ra vez la página--}}
+                             <input type="text" name="categoria" value={{ old('categoria', $curso->categoria) }}>
                          </label>
+
+                        {{-- Obtenemos el error relacionado al campo "categoria" al enviar el formulario --}}
+                        @error('categoria')
+                            <br>
+                            <small>*{{ $message }}</small>
+                            <br>
+                        @enderror
                  
                          <br>
                          
