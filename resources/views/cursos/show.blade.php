@@ -23,5 +23,17 @@
     <p><strong>Categoria:</strong> {{ $curso->categoria }} </p>
     {{-- $curso->description => Obtenemos la descripción del objeto "curso" y lo mostramos --}}
     <p>{{ $curso->description }} </p>
+
+
+    <form action="{{ route('cursos.destroy', $curso) }}" method="POST">
+        @csrf
+        {{-- Supuestamente esta era la manera de enviar una petición "delete", pero no funciona --}}
+        {{-- @method('delete') --}}
+
+        {{-- Esta es la manera que funcionó enviar la petición "DELETE" --}}
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit">Eliminar</button>
+    </form>
+
 @endsection 
 {{-- Fin de la declaración del campo "content" --}}

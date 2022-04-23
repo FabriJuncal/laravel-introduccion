@@ -33,6 +33,7 @@ class CursoController extends Controller
     }
 
     // Por convención al metodo que creará un elemento (Producto, Curso, etc) se le llama "store()"
+    // La instancia Request es necesaria para obtener los datos del formulario cuando se realiza una petición POST o PUT
     public function store(Request $request){
 
         // Validamos los datos que se reciben del formulario, en este caso se validan que los campos no estén vacíos
@@ -60,6 +61,8 @@ class CursoController extends Controller
     }
 
     // Por convención al metodo que mostrará la pantalla con la descripción de un elemento (Producto, Curso, etc) se le llama "show()"
+    // Se puede realizar una instancia al pasar como parametro de la función, de este modo reducimos el codigo
+    // En este caso se realizó una instancia del objeto "Curso"
     public function show(Curso $curso){
         
         // Al agregar "Curso $curso" como parametro de la función Laravel entiende que el parametro que estamos
@@ -80,12 +83,17 @@ class CursoController extends Controller
     }
 
     // Por convención al metodo que mostrará la pantalla con un formulario (de editar por ejemplo) se le llama "edit()"
+    // Se puede realizar una instancia al pasar como parametro de la función, de este modo reducimos el codigo
+    // En este caso se realizó una instancia del objeto "Curso"
     public function edit(Curso $curso){
         // Mostramos la Vista de la página de edición
         return view('cursos/edit', compact('curso'));
     }
 
     // Por convención al metodo que actualizará un elemento (Producto, Curso, etc) se le llama "update()"
+    // La instancia Request es necesaria para obtener los datos del formulario cuando se realiza una petición POST o PUT
+    // Se puede realizar una instancia al pasar como parametro de la función, de este modo reducimos el codigo
+    // En este caso se realizó una instancia del objeto "Curso"
     public function update(Request $request, Curso $curso){
 
         // Validamos los datos que se reciben del formulario, en este caso se validan que los campos no estén vacíos
@@ -112,5 +120,16 @@ class CursoController extends Controller
         // 1er parametro: Ruta a la que se quiere redireccionar (En este caso se pasó una Vista que hace referencia a una ruta)
         // 2do parametro: Se le pasa el ID del curso creado, con solo pasarle el objeto del curso creado Laravel ya encuentra el ID de este
         return redirect()->route('cursos.show', $curso);
+    }
+
+    // Por convención al metodo que eliminará un elemento (Producto, Curso, etc) se le llama "destroy()"
+    // Se puede realizar una instancia al pasar como parametro de la función, de este modo reducimos el codigo
+    // En este caso se realizó una instancia del objeto "Curso"
+    public function destroy(Curso $curso){
+        // delete(): Este método se encargá de eliminar el registro de la base de datos
+        $curso->delete();
+
+        // Luego de eliminar el registro redireccionamos a la página principal
+        return redirect()->route('cursos.index');
     }
 }

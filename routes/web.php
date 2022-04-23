@@ -91,10 +91,18 @@ Route::controller(CursoController::class)->group(function(){
 
     // ->name('[AGREGAR NOMBRE DE RUTA]') => Se le asigna un nombre a la ruta para poder utilizarla en otras partes de la aplicación
     // Este nombre se utilizará para hacer referencia a la ruta en otras partes de la aplicación con la función "route('[AGREGAR NOMBRE DE RUTA]')"
+    
+    // Tipos de Métodos:
+    // get(): para obtener datos
+    // post(): para enviar datos
+    // put(): para actualizar datos
+    // delete(): para eliminar datos
+
     Route::get('cursos', 'index')->name('cursos.index');
     Route::get('cursos/create', 'create')->name('cursos.create');
     Route::get('cursos/{curso}', 'show')->name('cursos.show');
     Route::post('cursos', 'store')->name('cursos.store');
     Route::get('cursos/{curso}/edit', 'edit')->name('cursos.edit');
     Route::put('cursos/{curso}', 'update')->name('cursos.update');
+    Route::delete('cursos/{curso}', 'destroy')->name('cursos.destroy');
 });
