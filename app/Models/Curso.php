@@ -15,4 +15,13 @@ class Curso extends Model
     // Con este código indicamos que la tabla que va a utilizar el modelo será distina a la que le indicamos 
     // en la convención, en este caso en vez de utilizar la tabla "curso" utilizaremos "users"
     // protected $table = 'users';
+
+
+    // Modificamos el Método "getRouteKeyName" que ya existe en la Clase Padre llamada "Model"
+    public function getRouteKeyName()
+    {
+        // Indicamos que el campo que se utilizará para obtener los datos en vez del ID, será el campo "slug"
+        // De esta formas podremos acceder a los datos de la tabla "cursos" por medio de la URL amigable
+        return 'slug';
+    }
 }

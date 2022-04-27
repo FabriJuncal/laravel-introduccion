@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Curso;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CursoController extends Controller
 {
@@ -47,7 +48,13 @@ class CursoController extends Controller
 
         // Instanciamos un nuevo objeto de la clase Curso
         $curso = new Curso();
-        $curso->name = $request->name;
+
+        $name = $request->name;
+
+        $curso->name = $name;
+        // Agregamos el campo "slug" al objeto Curso para las URL's amigables
+        // Str::slug(): Convierte el texto que le pasemos como 1er parametro en minuscula y convierte los espacios en el caracter que le pasemos como 2do parametro
+        $curso->slug = Str::slug($name, '-');
         $curso->description = $request->description;
         $curso->categoria = $request->categoria;
         $curso->save();
@@ -109,7 +116,12 @@ class CursoController extends Controller
         // al instancar el objeto Curso en el parametro $curso de la función
         // de esta forma Laravel ya filtra el curso por el id que contiene el objeto Curso
         // y nos ayuda a actualizar los datos
-        $curso->name = $request->name;
+
+        $name = $request->name;
+
+        // Agregamos el campo "slug" al objeto Curso para las URL's amigables
+        // Str::slug(): Convierte el texto que le pasemos como 1er parametro en minuscula y convierte los espacios en el caracter que le pasemos como 2do parametro
+        $curso->slug = Str::slug($name, '-');
         $curso->description = $request->description;
         $curso->categoria = $request->categoria;
         $curso->save();
